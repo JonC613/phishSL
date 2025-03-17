@@ -1,42 +1,69 @@
-# Phish.net Setlist Explorer
+# Phish.net API Integration
 
-A Streamlit application that allows you to explore Phish setlists and show information using the Phish.net API v5.
+A Streamlit application for exploring Phish setlists and show information using the Phish.net API.
 
 ## Features
 
-- Interactive calendar to select dates
-- Display of show information including venue and location
-- Detailed setlist information with song titles, durations, and notes
-- Support for historical shows from 1983 to present
-- Support for upcoming shows
+- View show information for any date from Phish's first show (December 2, 1983) up to 30 days in the future
+- Display venue and location details
+- Show complete setlists organized by sets
+- Track song positions and transitions
+- View special notes and footnotes
 
 ## Setup
 
-1. Clone this repository
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd phishnet-api-viewer
+```
 
-3. (Optional) Create a `.env` file in the root directory with your Phish.net API key:
-   ```
-   API_KEY=your_api_key_here
-   ```
-   If no API key is provided, the app will use a default key.
+2. Create and activate a virtual environment:
+```bash
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1  # On Windows
+source .venv/bin/activate     # On Unix/MacOS
+```
 
-## Running the App
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-To run the Streamlit app, execute:
+4. Set up environment variables:
+   - Copy `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Edit `.env` and add your Phish.net API key:
+     ```
+     PHISHNET_API_KEY=your_api_key_here
+     ```
+
+5. Run the application:
 ```bash
 streamlit run app.py
 ```
 
-The app will open in your default web browser. You can then:
-1. Select any date from the calendar
-2. View show information including venue and location
-3. Explore the complete setlist for that show
+## Environment Variables
 
-## API Documentation
+The following environment variables are required:
 
-This app uses the Phish.net API v5. For more information about the API, visit:
-https://api.phish.net/v5/doc/
+- `PHISHNET_API_KEY`: Your Phish.net API key
+
+## Development
+
+The project structure is organized as follows:
+
+```
+phishSL/
+├── app.py              # Main Streamlit application
+├── requirements.txt    # Python dependencies
+├── .env               # Environment variables (not tracked in git)
+├── .env.example       # Example environment variables template
+└── .gitignore         # Git ignore rules
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

@@ -9,7 +9,11 @@ from pysh import Client
 load_dotenv()
 
 # Initialize Phish.net client
-API_KEY = os.getenv("API_KEY", "C8024E01341F70ECA7DE")  # Default key if not set
+API_KEY = os.getenv("PHISHNET_API_KEY")
+if not API_KEY:
+    st.error("⚠️ PHISHNET_API_KEY not found in environment variables. Please set it in your .env file.")
+    st.stop()
+
 client = Client(apikey=API_KEY)
 
 def get_show_by_date(date):

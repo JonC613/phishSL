@@ -23,22 +23,26 @@ wheels/
 # Virtual Environment
 venv/
 .venv/
-env/
 ENV/
-.env
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
-.DS_Store
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
 # Local development settings
-*.log
 .coverage
 htmlcov/
 .pytest_cache/ 
